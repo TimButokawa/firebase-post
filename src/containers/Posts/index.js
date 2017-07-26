@@ -20,9 +20,9 @@ class Posts extends Component {
   }
 }
 
-Posts.proptypes = {
+Posts.propTypes = {
   posts: PropTypes.object,
-  loading: PropTypes.object
+  loading: PropTypes.bool
 };
 
 export default Posts;
