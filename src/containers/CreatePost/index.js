@@ -10,7 +10,9 @@ class CreatePost extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      title: ''
+      title: '',
+      upVotes: 0,
+      downVotes: 0
     };
   }
 
@@ -25,9 +27,7 @@ class CreatePost extends Component {
     const {firebaseRef} = this.props;
 
     if (this.state.title.length) {
-      firebaseRef.ref('posts').push({
-        title: this.state.title
-      });
+      firebaseRef.ref('posts').push({...this.state});
 
       this.setState({
         title: ''
