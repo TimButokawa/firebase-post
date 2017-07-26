@@ -22,10 +22,10 @@ class CreatePost extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const {postsRef} = this.props;
+    const {firebaseRef} = this.props;
 
     if (this.state.title.length) {
-      postsRef.push({
+      firebaseRef.ref('posts').push({
         title: this.state.title
       });
 
@@ -59,7 +59,7 @@ class CreatePost extends Component {
 };
 
 CreatePost.propTypes = {
-  postsRef: PropTypes.object
+  firebaseRef: PropTypes.object
 };
 
 export default CreatePost;

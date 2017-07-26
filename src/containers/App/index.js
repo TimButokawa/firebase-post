@@ -7,16 +7,16 @@ class App extends Component {
     super(props);
     firebase.initializeApp(config);
     this.state = {
-      postsRef: firebase.database().ref('posts'),
+      firebaseRef: firebase.database(),
       posts: {},
       loading: true
     };
   }
 
   componentWillMount() {
-    const {postsRef} = this.state;
+    const {firebaseRef} = this.state;
 
-    postsRef.on('value', posts => {
+    firebaseRef.ref('posts').on('value', posts => {
       this.setState({
         posts: posts.val(),
         loading: false
