@@ -17,8 +17,11 @@ class CreatePost extends Component {
   }
 
   handleChange(e) {
+    const target = e.target;
+    const name = target.name;
+
     this.setState({
-      title: e.target.value
+      [name]: target.value
     });
   }
 
@@ -30,7 +33,8 @@ class CreatePost extends Component {
       firebaseRef.ref('posts').push({...this.state});
 
       this.setState({
-        title: ''
+        title: '',
+        body: ''
       });
 
       browserHistory.push('posts');
@@ -45,10 +49,16 @@ class CreatePost extends Component {
         <div>
           <input
             type="text"
+            name="title"
             placeholder="Title"
             onChange={this.handleChange}
             value={this.state.title}
             required/>
+          <textarea
+            placeholder="What is it about"
+            name="body"
+            onChange={this.handleChange}
+            value={this.state.body}></textarea>
         </div>
         <div>
           <button type="submit">Submit</button>

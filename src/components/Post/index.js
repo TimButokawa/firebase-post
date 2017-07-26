@@ -7,9 +7,10 @@ class Post extends Component {
     return (
       <div>
         <span>{post.points}</span>
-        <span>{post.title}</span>
         <button onClick={() => handleVote(post, id, 'upVote')}>upvote</button>
         <button onClick={() => handleVote(post, id, 'downVote')}>downvote</button>
+        <span>{post.title}</span>
+        <div>{post.body}</div>
       </div>
     );
   }
