@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Post from '../../components/Post';
+import {Link} from 'react-router';
 
 class Posts extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Posts extends Component {
               handleVote={this.handleVote}/>
           );
         })}
+        <Link to='add-post'>Add Post</Link>
       </div>
     );
     return (
