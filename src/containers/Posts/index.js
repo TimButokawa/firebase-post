@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 class Posts extends Component {
   render () {
-    const content = this.props.loading ? (
+    const {posts, loading} = this.props;
+    const content = loading ? (
       <div>Loading...</div>
     ) : (
       <div>
-        {this.props.posts.map((post, i) => {
-          return <div key={i}>{post.title}</div>;
+        {Object.keys(posts).map(i => {
+          return <div key={i}>{posts[i].title}</div>;
         })}
       </div>
     );
