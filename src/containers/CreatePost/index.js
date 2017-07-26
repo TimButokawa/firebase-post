@@ -11,8 +11,8 @@ class CreatePost extends Component {
 
     this.state = {
       title: '',
-      upVotes: 0,
-      downVotes: 0
+      body: '',
+      points: 0
     };
   }
 
