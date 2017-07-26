@@ -6,12 +6,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     firebase.initializeApp(config);
+    this.state = {
+      postsRef: firebase.database().ref('posts'),
+      posts: {},
+      loading: true
+    };
   }
 
   componentWillMount() {
-    const posts = firebase.database().ref('posts');
+    const {postsRef} = this.state;
 
-    posts.on('value', posts => {
+    postsRef.on('value', posts => {
       this.setState({
         posts: posts.val(),
         loading: false
@@ -21,7 +26,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>Hello World</div>
+      <div>
+        {this.props.children && React.cloneElement(this.props.children, {...this.state})}
+      </div>
     );
   }
 }
