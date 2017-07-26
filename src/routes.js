@@ -7,9 +7,9 @@ import CreatePost from './containers/CreatePost';
 
 const Routes = props => (
   <Router {...props}>
-    <Route path='/' component={App}>
-      <Route path='/posts' component={Posts}/>
-      <Route path='/add-post' component={CreatePost}/>
+    <Route path="/" component={App}>
+      <Route path="posts" component={Posts}/>
+      <Route path="add-post" component={CreatePost}/>
     </Route>
   </Router>
 );

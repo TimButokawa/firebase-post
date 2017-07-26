@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Post from '../../components/Post';
 
 class Posts extends Component {
   constructor(props) {
@@ -21,12 +22,11 @@ class Posts extends Component {
       <div>
         {Object.keys(posts).map(i => {
           return (
-            <div key={i}>
-              <span>{posts[i].points}</span>
-              <span>{posts[i].title}</span>
-              <button onClick={() => this.handleVote(posts[i], i, 'upVote')}>upvote</button>
-              <button onClick={() => this.handleVote(posts[i], i, 'downVote')}>downvote</button>
-            </div>
+            <Post
+              key={i}
+              id={i}
+              post={posts[i]}
+              handleVote={this.handleVote}/>
           );
         })}
       </div>
