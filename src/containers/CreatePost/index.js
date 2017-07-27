@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {browserHistory} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 
 class CreatePost extends Component {
   constructor(props) {
@@ -63,6 +63,7 @@ class CreatePost extends Component {
         <div>
           <button type="submit">Submit</button>
         </div>
+        <Link to="/posts">View Posts</Link>
       </form>
     );
   }
